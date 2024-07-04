@@ -1,0 +1,61 @@
+Have you seen this number before
+
+def seen_before(numbers):
+    seen = set()
+    for i in numbers:
+        if i in seen:
+            print("YES")
+        else:
+            print("NO")
+            seen.add(i)
+numbers = [1, 3, 8, 35, 4, 2, 3]
+seen_before(numbers)
+
+Special word
+
+def special_words(sentence):
+    words = sentence.lower().split()
+    distinct_words = set(words)
+    a_count = sum(word.count('a') for word in distinct_words)
+    print(len(distinct_words))
+    print(a_count)
+
+sentence = "The quick brown fox jumps over the lazy dog"
+special_words(sentence)
+
+Special numbers
+
+def special_numbers(listA, listB):
+    common_numbers = sorted(set(listA) & set(listB))
+    for i in common_numbers:
+        print(i, end=' ')
+
+
+listA = [18, 2, 90, 3, 5]
+listB = [2, 86, 42, 5, 7]
+special_numbers(listA, listB)
+
+Multilingual
+
+def multilingual():
+    people_count = int(input("How many people are there? "))
+    all_languages = set()
+    common_languages = None
+    
+    for i in range(people_count):
+        lang_count = int(input(f"(To person {i+1}) How many languages can you speak? "))
+        languages = set(input("What languages can you speak in?\n").split())
+        
+        if common_languages is None:
+            common_languages = languages
+        else:
+            common_languages &= languages
+        
+        all_languages |= languages
+    
+    print(f"Number of languages everyone speaks: {len(common_languages)}")
+    print(f"Spoken language(s) everyone speaks: {', '.join(sorted(common_languages))}")
+    print(f"Total languages spoken in the group: {len(all_languages)}")
+    print(f"Languages spoken: {', '.join(sorted(all_languages))}")
+
+multilingual()
